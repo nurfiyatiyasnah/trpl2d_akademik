@@ -36,6 +36,11 @@ $data = $query->fetch_assoc();
         <textarea class="form-control" name="alamat" required><?= $data['alamat'] ?></textarea>
     </div>
 
+    <div class="mb-3">
+        <label class="form-label">Prodi</label>
+        <textarea class="form-control" name="prodi_id" required><?= $data['prodi_id'] ?></textarea>
+    </div>
+
     <button type="submit" name="update" class="btn btn-primary">Simpan</button>
     <a href="index.php?page=mahasiswa" class="btn btn-secondary">Batal</a>
 

@@ -9,6 +9,7 @@
             <th scope="col">Nama Mahasiswa</th>
             <th scope="col">Tanggal Lahir</th>
             <th scope="col">Alamat</th>
+            <th scope="col">Prodi</th>
             <th scope="col">Aksi</th>
         </tr>
     </thead>
@@ -18,7 +19,7 @@
         require 'koneksi.php';
 
         // query yang benar
-        $tampil = $koneksi->query("SELECT * FROM mahasiswa");
+        $tampil = $koneksi->query("SELECT m.*, p.nama_prodi FROM mahasiswa m LEFT JOIN prodi p ON m.prodi_id = p.id");
 
         $no = 1;
         while ($data = $tampil->fetch_assoc()) {
@@ -29,6 +30,7 @@
             <td><?= $data['nama_mhs'] ?></td>
             <td><?= $data['tgl_lahir'] ?></td>
             <td><?= $data['alamat'] ?></td>
+            <td><?= !empty($data['nama_prodi']) ? $data['nama_prodi'] : '-'; ?></td>
 
             <td>
                 <!-- Edit berdasarkan NIM -->

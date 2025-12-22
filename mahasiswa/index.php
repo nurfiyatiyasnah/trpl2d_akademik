@@ -22,17 +22,15 @@
       <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             
-            <li class="nav-item">
-              <a class="nav-link <?= (!isset($_GET['page']) || $_GET['page']=='home') ? 'active' : '' ?>" 
-                 aria-current="page" href="index.php">Home</a>
-            </li>
-
-            <li class="nav-item">
-              <!-- bukutamu diganti jadi mahasiswa tapi nama menu TETAP -->
-              <a class="nav-link <?= (isset($_GET['page']) && $_GET['page']=='mahasiswa') ? 'active' : '' ?>" 
-                 href="index.php?page=mahasiswa">Data Mahasiswa</a>
-            </li>
-
+             <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../mahasiswa/?page=mahasiswa">Data Mahasiswa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../prodi/index.php?page=prodi">Program Studi</a>
+          </li>
           </ul>
       </div>
     </div>
@@ -44,6 +42,7 @@
 
         if ($page == 'home') include 'home.php';
         if ($page == 'mahasiswa') include 'list.php';   // menampilkan data mahasiswa
+        if ($page == 'prodi') include 'list.php';
         if ($page == 'create') include 'create.php';    // tambah mahasiswa
         if ($page == 'edit') include 'edit.php';        // edit mahasiswa
       ?>

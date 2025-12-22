@@ -27,10 +27,24 @@
                 <label for="alamat" class="form-label">Alamat</label>
                 <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
             </div>
+            <div class="mb-3">
+                <label for="prodi_id" class="form-label">Prodi</label>
+                <?php
+                    require 'koneksi.php';
+                    $prodi_list = $koneksi->query("SELECT * FROM prodi ORDER BY nama_prodi");
+                ?>
+                <select name="prodi_id" class="form-select" required>
+                    <option value="">-- Pilih Prodi --</option>
+                    <?php while($row = mysqli_fetch_assoc($prodi_list)) { ?>
+                        <option value="<?= $row['id'] ?>"><?= $row['nama_prodi'] ?> (<?= $row['jenjang'] ?>)</option>
+                    <?php } ?>
+                </select>
+            </div>
             <div>
                 <input type="submit" name="submit" class="btn btn-primary">
-                <a href ='index.php' class= 'btn btn-primary'>Lihat Data Tamu</a>
+                <a href ='index.php' class= 'btn btn-primary'>Lihat Data Mahasiswa</a>
             </div>
+            
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
