@@ -42,7 +42,7 @@
             </div>
             <div>
                 <input type="submit" name="submit" class="btn btn-primary">
-                <a href ='index.php' class= 'btn btn-primary'>Lihat Data Mahasiswa</a>
+                <a href ='index.php?page=mahasiswa' class= 'btn btn-primary'>Lihat Data Mahasiswa</a>
             </div>
             
         </form>
