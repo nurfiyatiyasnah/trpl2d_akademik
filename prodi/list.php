@@ -1,43 +1,49 @@
-<?php
-require 'koneksi.php';
+<h1 class="text-center">List Data Prodi</h1>
 
-$sql   = "SELECT * FROM prodi ORDER BY nama_prodi";
-$query = $koneksi->query($sql);
-?>
+<table class="table table-bordered text-center border-dark">
+    <thead class="table-secondary">
+        <tr>
+            <th scope="col">No</th>
+            <th scope="col">Nama Prodi</th>
+            <th scope="col">Jenjang</th>
+            <th scope="col">Keterangan</th>
+            <th scope="col">Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        require 'koneksi.php';
+        $no = 1;
+        $tampil = $koneksi->query(
+            "SELECT * FROM prodi"
+        );
 
-<h1>Data Program Studi</h1>
-<a href="index.php?page=create" class="btn btn-primary mb-3">Input Data Prodi</a>
+        while ($data = $tampil->fetch_assoc()) {
+        ?>
+            <tr>
+                <th scope="row"><?= $no++ ?></th>
+                <td><?= $data['nama_prodi'] ?></td>
+                <td><?= $data['jenjang'] ?></td>
+                <td><?= $data['keterangan'] ?></td>
+                <td>
+                    <a href="index.php?page=prodi_update&id=<?= $data['id']; ?>" 
+                       class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>No</th>
-      <th>ID</th>
-      <th>Nama Prodi</th>
-      <th>Jenjang</th>
-      <th>Keterangan</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php $no = 1; while ($row = $query->fetch_assoc()) { ?>
-      <tr>
-        <td><?= $no++; ?></td>
-        <td><?= $row['id']; ?></td>
-        <td><?= $row['nama_prodi']; ?></td>
-        <td><?= $row['jenjang']; ?></td>
-        <td><?= $row['keterangan']; ?></td>
-        <td>
-          <a href="index.php?page=edit&id=<?= $row['id']; ?>" class="btn btn-warning btn-sm">
-            Edit
-          </a>
-          <a href="proses.php?id_prodi=<?= $row['id']; ?>"
-             class="btn btn-danger btn-sm"
-             onclick="return confirm('Yakin hapus prodi ini?');">
-            Delete
-          </a>
-        </td>
-      </tr>
-    <?php } ?>
-  </tbody>
+                    <a href="proses.php?prodi_delete=<?= $data['id']; ?>" 
+                       class="btn btn-danger btn-sm"
+                       onclick="return confirm('Yakin ingin menghapus data ini?');">
+                        Hapus
+                    </a>
+                </td>
+            </tr>
+        <?php
+        }
+        ?>
+    </tbody>
 </table>
+
+<a href="index.php?page=prodi_create" class="btn btn-primary">
+    Input Data Prodi
+</a>

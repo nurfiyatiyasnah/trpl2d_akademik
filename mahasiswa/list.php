@@ -1,51 +1,48 @@
-<h1>List Data Mahasiswa</h1>
-<a href="index.php?page=create" class="btn btn-primary mb-3">Input Data Mahasiswa</a>
+<h1 class="text-center">List Data Mahasiswa</h1>
 
-<table class="table table-bordered">
-    <thead>
+<table class="table table-bordered text-center border-dark">
+    <thead class="table-secondary">
         <tr>
-            <th scope="col">No</th>
             <th scope="col">NIM</th>
             <th scope="col">Nama Mahasiswa</th>
             <th scope="col">Tanggal Lahir</th>
-            <th scope="col">Alamat</th>
             <th scope="col">Prodi</th>
+            <th scope="col">Alamat</th>
             <th scope="col">Aksi</th>
         </tr>
     </thead>
-
     <tbody>
         <?php
         require 'koneksi.php';
-
-        // query yang benar
-        $tampil = $koneksi->query("SELECT m.*, p.nama_prodi FROM mahasiswa m LEFT JOIN prodi p ON m.prodi_id = p.id");
-
-        $no = 1;
-        while ($data = $tampil->fetch_assoc()) {
+            $tampil = $koneksi->query("SELECT m.nim, m.nama_mhs, m.tgl_lahir, m.alamat, p.nama_prodi, p.jenjang FROM mahasiswa m 
+                                    LEFT JOIN prodi p ON m.prodi_id = p.id");
+            $no=1;
+            //looping data tamu
+            while($data = mysqli_fetch_assoc($tampil)){
         ?>
-        <tr>
-            <td><?= $no++ ?></td>
-            <td><?= $data['nim'] ?></td>
-            <td><?= $data['nama_mhs'] ?></td>
-            <td><?= $data['tgl_lahir'] ?></td>
-            <td><?= $data['alamat'] ?></td>
-            <td><?= !empty($data['nama_prodi']) ? $data['nama_prodi'] : '-'; ?></td>
+            <tr>
+                <td><?= $data['nim'] ?></td>
+                <td><?= $data['nama_mhs'] ?></td>
+                <td><?= $data['tgl_lahir'] ?></td>
+                <td><?= $data['nama_prodi'] ?></td>
+                <td><?= $data['alamat'] ?></td>
+                <td>
+                    <a href="index.php?page=mahasiswa_update&nim=<?= $data['nim']; ?>" 
+                       class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
 
-            <td>
-                <!-- Edit berdasarkan NIM -->
-                <a href="index.php?page=edit&nim=<?= $data['nim'] ?>" 
-                   class="btn btn-warning btn-sm">Edit</a>
-
-                <!-- Delete berdasarkan NIM -->
-                <a href="proses.php?delete=<?= $data['nim'] ?>" 
-                   class="btn btn-danger btn-sm"
-                   onclick="return confirm('Yakin ingin menghapus data ini?')">
-                   Delete
-                </a>
-            </td>
-        </tr>
-        <?php } ?>
+                    <a href="proses.php?mhs_delete=<?= $data['nim']; ?>" 
+                       class="btn btn-danger btn-sm"
+                       onclick="return confirm('Yakin ingin menghapus data ini?');">
+                        Hapus
+                    </a>
+                </td>
+            </tr>
+        <?php
+        }
+        ?>
     </tbody>
-
 </table>
+
+<a href="index.php?page=mahasiswa_create" class="btn btn-primary">Input Data Mahasiswa</a>
