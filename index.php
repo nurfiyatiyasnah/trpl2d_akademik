@@ -1,3 +1,15 @@
+<?php
+//session  | cookies
+
+session_start();
+//cek login sudah atau atau belum
+if(!isset($_SESSION['login'])){
+    header("Location: login.php");
+}
+
+
+
+?>
 <!doctype html>
 <html lang="en">
 
