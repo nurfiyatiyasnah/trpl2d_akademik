@@ -1,7 +1,7 @@
 <h1 class="text-center">List Data Mahasiswa</h1>
 
-<table class="table table-bordered text-center border-dark">
-    <thead class="table-secondary">
+<table class="table table-bordered text-center">
+    <thead class="table-info">
         <tr>
             <th scope="col">NIM</th>
             <th scope="col">Nama Mahasiswa</th>
@@ -14,8 +14,8 @@
     <tbody>
         <?php
         require 'koneksi.php';
-            $tampil = $koneksi->query("SELECT m.nim, m.nama_mhs, m.tgl_lahir, m.alamat, p.nama_prodi, p.jenjang FROM mahasiswa m 
-                                    LEFT JOIN prodi p ON m.prodi_id = p.id");
+            $tampil = $koneksi->query("SELECT m.nim, m.nama_mhs, m.tgl_lahir, m.alamat, p.nama_prodi, p.jenjang FROM mahasiswa1 m 
+                                    LEFT JOIN prodi1 p ON m.prodi_id = p.id");
             $no=1;
             //looping data tamu
             while($data = mysqli_fetch_assoc($tampil)){
@@ -45,4 +45,4 @@
     </tbody>
 </table>
 
-<a href="index.php?page=mahasiswa_create" class="btn btn-primary">Input Data Mahasiswa</a>
+<a href="index.php?page=mahasiswa_create" class="btn btn-primary">+ Input Data Mahasiswa</a>

@@ -1,9 +1,9 @@
 <?php
     require 'koneksi.php';
-    $prodi = $koneksi->query("SELECT id, nama_prodi, jenjang FROM prodi");
+    $prodi = $koneksi->query("SELECT id, nama_prodi, jenjang FROM prodi1");
 ?>
 <h1>Input Data Mahasiswa</h1>
-<form action="/pemrograman_web/akademik/proses.php" method="POST">
+<form action="/pemograman_web/akademik/proses.php" method="POST">
 
     <div class="mb-3">
         <label for="nim" class="form-label">NIM</label>

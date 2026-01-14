@@ -1,7 +1,7 @@
 <h1 class="text-center">List Data Prodi</h1>
 
-<table class="table table-bordered text-center border-dark">
-    <thead class="table-secondary">
+<table class="table table-bordered text-center">
+    <thead class="table-info">
         <tr>
             <th scope="col">No</th>
             <th scope="col">Nama Prodi</th>
@@ -15,7 +15,7 @@
         require 'koneksi.php';
         $no = 1;
         $tampil = $koneksi->query(
-            "SELECT * FROM prodi"
+            "SELECT * FROM prodi1"
         );
 
         while ($data = $tampil->fetch_assoc()) {
@@ -45,5 +45,5 @@
 </table>
 
 <a href="index.php?page=prodi_create" class="btn btn-primary">
-    Input Data Prodi
+    + Input Data Prodi
 </a>

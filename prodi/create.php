@@ -1,6 +1,6 @@
 <h1>Input Prodi Mahasiswa</h1>
 
-<form action="/pemrograman_web/akademik/proses.php" method="POST">
+<form action="/pemograman_web/akademik/proses.php" method="POST">
 
     <div class="mb-3">
         <label class="form-label">Nama Prodi</label>

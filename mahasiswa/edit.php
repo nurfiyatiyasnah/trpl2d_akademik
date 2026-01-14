@@ -10,7 +10,7 @@ $prodi = $koneksi->query("SELECT id, nama_prodi, jenjang FROM prodi");
 
 <h1>Edit Data Mahasiswa</h1>
 
-<form action="/pemrograman_web/akademik/proses.php" method="post">
+<form action="/pemograman_web/akademik/proses.php" method="post">
 
     <!-- NIM sebagai PRIMARY KEY -->
     <input type="hidden" name="nim" value="<?= $data['nim'] ?>">

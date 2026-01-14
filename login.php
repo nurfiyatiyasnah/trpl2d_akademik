@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -34,12 +37,11 @@
 
             require 'koneksi.php';
             //cek credentials user
-            $ceklogin = "SELECT * FROM pengguna WHERE email='$email' AND password='$pass'";
+            $ceklogin = "SELECT * FROM pengguna1 WHERE email='$email' AND password='$pass'";
             $result = $koneksi->query($ceklogin);
 
             if($result->num_rows > 0){
                 //echo "login berhasil";
-                session_start();
                 $_SESSION['login'] = TRUE;
                 $_SESSION['email'] = $email;
                 header("Location: index.php");

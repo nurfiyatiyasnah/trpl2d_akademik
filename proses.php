@@ -12,7 +12,7 @@ if (isset($_POST['mhs_submit'])) {
     $alamat     = $_POST['alamat'];
     $prodi_id = $_POST['prodi_id'];
 
-    $query = "INSERT INTO mahasiswa 
+    $query = "INSERT INTO mahasiswa1 
           (nim, nama_mhs, tgl_lahir, prodi_id, alamat)
           VALUES ('$nim', '$nama_mhs', '$tgl_lahir', '$prodi_id', '$alamat')";
     $sql = $koneksi->query($query);
@@ -35,7 +35,7 @@ elseif (isset($_POST['mhs_update'])) {
     $alamat     = $_POST['alamat'];
     $prodi_id = $_POST['prodi_id'];
 
-    $query = "UPDATE mahasiswa 
+    $query = "UPDATE mahasiswa1 
               SET nama_mhs='$nama_mhs',
                   tgl_lahir='$tgl_lahir',
                   prodi_id= '$prodi_id',
@@ -77,7 +77,7 @@ elseif (isset($_POST['prodi_submit'])) {
     $jenjang    = $_POST['jenjang'];
     $keterangan = $_POST['keterangan'];
 
-    $query = "INSERT INTO prodi (nama_prodi, jenjang, keterangan)
+    $query = "INSERT INTO prodi1 (nama_prodi, jenjang, keterangan)
               VALUES ('$nama_prodi', '$jenjang', '$keterangan')";
 
     $sql = $koneksi->query($query);
@@ -99,7 +99,7 @@ elseif (isset($_POST['prodi_update'])) {
     $jenjang    = $_POST['jenjang'];
     $keterangan = $_POST['keterangan'];
 
-    $query = "UPDATE prodi 
+    $query = "UPDATE prodi1 
               SET nama_prodi='$nama_prodi',
                   jenjang='$jenjang',
                   keterangan='$keterangan'
@@ -121,7 +121,7 @@ elseif (isset($_POST['prodi_update'])) {
 elseif (isset($_GET['prodi_delete'])) {
     $id = $_GET['prodi_delete'];
 
-    $query = "DELETE FROM prodi WHERE id='$id'";
+    $query = "DELETE FROM prodi1 WHERE id='$id'";
     $sql = $koneksi->query($query);
 
     if ($sql) {

@@ -7,8 +7,6 @@ if(!isset($_SESSION['login'])){
     header("Location: login.php");
 }
 
-
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -29,7 +27,7 @@ if(!isset($_SESSION['login'])){
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
@@ -38,6 +36,14 @@ if(!isset($_SESSION['login'])){
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?page=prodi">Data Prodi</a>
+                    </li>
+                </ul>
+                <!-- LOGOUT BUTTON -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="btn btn-danger btn-sm"
+                        href="logout.php"
+                        onclick="return confirm('Yakin ingin logout?')"> Logout </a>
                     </li>
                 </ul>
             </div>
