@@ -38,14 +38,22 @@ if(!isset($_SESSION['login'])){
                         <a class="nav-link" href="index.php?page=prodi">Data Prodi</a>
                     </li>
                 </ul>
+                <ul class="navbar-nav ms-auto align-items-center">
+                <!-- EDIT PROFIL -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?page=profil">
+                        Edit Profil
+                    </a>
+                </li>
                 <!-- LOGOUT BUTTON -->
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="btn btn-danger btn-sm"
-                        href="logout.php"
-                        onclick="return confirm('Yakin ingin logout?')"> Logout </a>
-                    </li>
-                </ul>
+                <li class="nav-item ms-3">
+                    <a href="logout.php"
+                       onclick="return confirm('Yakin ingin logout?')"
+                       class="btn btn-outline-secondary">
+                        Logout
+                    </a>
+                </li>
+            </ul>
             </div>
         </div>
     </nav>
@@ -75,6 +83,9 @@ if(!isset($_SESSION['login'])){
                 case 'prodi_update':
                     include 'prodi/edit.php';
                     break;
+                case 'profil':
+                include 'edit_profil.php';
+                break;
                 default:
                     include 'home.php';
             }

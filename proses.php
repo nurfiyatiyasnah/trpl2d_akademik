@@ -58,7 +58,7 @@ elseif (isset($_POST['mhs_update'])) {
 elseif (isset($_GET['mhs_delete'])) {
     $nim = $_GET['mhs_delete'];
 
-    $query = "DELETE FROM mahasiswa WHERE nim='$nim'";
+    $query = "DELETE FROM mahasiswa1 WHERE nim='$nim'";
     $sql = $koneksi->query($query);
 
     if ($sql) {
